@@ -28,6 +28,8 @@ class Car:
             self.race += distance
             self.fuel -= distance * (self.fuel_consumption / 100)
             print(f"Машина проїхала {distance}  та рівень пального {self.fuel}")
+            self.car_status()
+            print(f"{self.is_works}")
         else:
             print("Машина зламана ")
 
@@ -51,5 +53,5 @@ class Car:
 
 
 car = Car("Toyota", 95000, 16)
-car.add_fuel(5)
 car.get_start(100)
+car.add_fuel(5)
