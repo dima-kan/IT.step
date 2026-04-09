@@ -18,6 +18,15 @@
 #  heal(heal_hp) – збільшує hp на heal_hp
 
 from abc import ABC, abstractmethod
+from enum import Enum
+
+
+class Stat(Enum):
+    intelligence = "intelligence"
+    strength = "strength"
+    dexterity = "dexterity"
+    mana = "mana"
+    defense = "defense"
 
 
 class Character(ABC):
@@ -55,16 +64,16 @@ class Character(ABC):
         if self._level < 20:
             self._level += 1
 
-    def increase_stat(self, stat: str):
-        if stat == "intelligence":
+    def increase_stat(self, stat: Stat):
+        if stat == Stat.intelligence:
             self._intelligence += 1
-        elif stat == "strength":
+        elif stat == Stat.strength:
             self._strength += 1
-        elif stat == "dexterity":
+        elif stat == Stat.dexterity:
             self._dexterity += 1
-        elif stat == "mana":
+        elif stat == Stat.mana:
             self._mana += 1
-        else:
+        elif stat == Stat.defense:
             self._defense += 1
 
     def rest(self):
@@ -85,3 +94,37 @@ class Character(ABC):
 #  shield() – збільшує стат defense на 4+level
 #  unshield() – зменшує стат defense на 4+level
 #  heal_ally(ally) – лікує союзника на 5 + 2*level + 0.5*mana
+
+
+class Paladin(Character):
+    def attack(self):
+        if self._mana >= 5:
+            self._mana -= 5
+            return 4 * self._strength
+        return 1 * self._strength
+
+    def shield(self):
+        self._defense += 4 + self._level
+
+    def unshield(self):
+        self._defense -= 4 + self._level
+
+    def heal_ally(self, ally: Character):
+        heal_amount = int(5 + 2 * self._level + 0.5 * self._mana)
+        ally.heal(heal_amount)
+
+
+# Створіть дочірній клас Mage
+# Методи:
+#  attack() – наносить 3*intelligence+4 урону та зменшує
+# mana на 3, якщо недостатньо, то не наносить урону
+#  fireball() – наносить 2*intelligence+3 урону по області та
+# зменшує mana на 5, якщо недостатньо, то не наносить
+# урону
+#  heal_ally(ally) – лікує союзника на 3 + level +
+# 3*intelligence
+
+
+character = Paladin("Paladin", 100, 5, 5, 5, 5, defense=1)
+character.shield()
+character.take_damage(70)
