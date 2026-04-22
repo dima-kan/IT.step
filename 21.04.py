@@ -149,31 +149,3 @@ class SecurityRobot(Robot):
         print(f"Мінімальна швидкість: {self._min_speed}")
         print(f"Рівень небезпеки: {self._alert_level.value}")
         print(f"Cписок небезпечних предметів: {self._dangerous_items}.")
-
-    def turn_off(self):
-        self._alert_level = AlertLevel.low
-        super().turn_off()
-
-    def add_dangerous_item(self, item: str):
-        if item not in self._dangerous_items:
-            self._dangerous_items.append(item)
-
-    def remove_dangerous_item(self, item: str):
-        if item in self._dangerous_items:
-            self._dangerous_items.remove(item)
-
-    def detect(self, speed: int, item: str):
-        if speed < self._min_speed:
-            print(f"{self._name}: Швидкість занизька, ігноруємо")
-            return
-
-        if speed > self._min_speed:
-            if self._alert_level != AlertLevel.high:
-                self._alert_level = AlertLevel.middle
-
-        if item in self._dangerous_items:
-            self._alert_level = AlertLevel.high
-            print(f"{self._name}: УВАГА! Виявлено небезпечний предмет: {item}")
-            return
-
-        print(f"{self._name}: Загрози не виявлено")
