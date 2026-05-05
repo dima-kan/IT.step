@@ -103,4 +103,4 @@ def create_book(book: Book) -> dict[str, str]:
 
     with open("books.json", "w") as file:
         json.dump(books, file, indent=4)
-    return {"mesege": "Книга додана успішно"}
+    return {"message": "Книга додана успішно"}
