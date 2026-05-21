@@ -59,16 +59,13 @@ add_band(groups)
 add_album(groups)
 add_album(groups)
 
-print("Початкові дані:")
 print(groups)
 
 save_json(groups)
 save_pickle(groups)
 
 groups_json = load_json()
-print("Завантажено з JSON:")
 print(groups_json)
 
 groups_pickle = load_pickle()
-print("Завантажено з Pickle:")
 print(groups_pickle)
