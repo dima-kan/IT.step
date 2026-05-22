@@ -13,7 +13,7 @@
 -- ■ Калорійність;
 -- ■ Короткий опис.
 -- Домашнє завдання
---
+-- --
 -- INSERT INTO Products (NAME, TYPE, COLOR, CALORIE, description) VALUES
 -- ('Яблуко', 'фрукт', 'червоний', 52, 'Солодке яблуко, багате на клітковину'),
 -- ('Банан', 'фрукт', 'жовтий', 89, 'Енергетичний банан із високим вмістом калію'),
@@ -69,53 +69,52 @@
 
 -- Створіть наступні запити для таблиці з інформацією про
 -- овочі та фрукти із попереднього завдання:
+
 -- ■ Відображення всієї інформації з таблиці овочів та фруктів;
 
 -- SELECT *
 -- FROM PRODUCTS
 
-
 -- ■ Відображення усіх овочів;
--- SELECT TYPE, NAME, ID
+
+-- SELECT TYPE,NAME,ID
 -- FROM PRODUCTS
 -- WHERE TYPE = 'овоч'
 
 
 
-
 -- ■ Відображення усіх фруктів;
 
-
--- SELECT TYPE, NAME, ID
+-- SELECT TYPE,NAME,ID
 -- FROM PRODUCTS
--- WHERE TYPE = 'фрукт'
-
+-- WHERE NAME = 'фрукт'
 
 -- ■ Відображення усіх назв овочів та фруктів;
 
 -- SELECT NAME
 -- FROM PRODUCTS
 
+
 -- ■ Відображення усіх кольорів. Кольори мають бути унікальними;
 
--- SELECT DISTINCT COLOR
+-- SELECT  DISTINCT COLOR
 -- FROM PRODUCTS
 
 
 -- ■ Відображення фруктів певного кольору;
 
+
+
 -- SELECT COLOR, NAME, TYPE
 -- FROM PRODUCTS
--- WHERE COLOR = 'жовтий' AND TYPE = 'фрукт'
-
+-- WHERE TYPE = 'фрукт' AND  COLOR ='жовтий'
 
 -- ■ Відображення овочів певного кольору.
 
+
 -- SELECT COLOR, NAME, TYPE
 -- FROM PRODUCTS
--- WHERE COLOR = 'жовтий' AND TYPE = 'овоч'
-
-
+-- WHERE TYPE = 'овоч' AND  COLOR ='жовтий'
 
 
 
