@@ -1,3 +1,4 @@
+import random
 # Напишіть гру Правда або Дія.
 # Опис:
 # 1. Спочатку, введіть імена гравців.
@@ -32,56 +33,82 @@
 # get_player_names(): Запитайте імена гравців і поверніть
 # # їх у вигляді списку.
 
+questions = [
+    "Який твій найбільший страх?",
+    "Яку найбільшу брехню ти говорив?",
+    "Хто тобі подобається?",
+    "Який твій найсмішніший випадок у житті?",
+    "Що б ти змінив у собі?"
+]
 
-questions = []
+dares = [
+    "Заспівай пісню.",
+    "Станцюй 30 секунд.",
+    "Розкажи смішний анекдот.",
+    "Покажи смішну гримасу.",
+    "Зроби 10 присідань."
+]
 
 
 def get_player_names():
     players = []
 
-    for i in range(2):
-        name = input(f"Гравець {i + 1}: ")
+    count = int(input("Введіть кількість гравців: "))
+    for i in range(count):
+        name = input(f"Введіть ім'я гравця {i + 1}: ")
         players.append(name)
-
-    while True:
-        add_player = input("Хочете додати ще одного гравця? (так/ні): ")
-
-        if add_player.lower() == "так":
-            name = input(f"Гравець {len(players) + 1}: ")
-            players.append(name)
-        else:
-            break
-
     return players
 
 
-# print(get_player_names())
-# ask_truth_or_dare(player): Функція, яка приймає ім'я
-# гравця та запитує його, чи обирати "Правда" чи "Дія".
+
+def ask_truth_or_dare(player):
+    choice = input(f"{player}, оберіть 'Правда' або 'Дія': ").lower()
+    return choice
 
 
-def ask_truth_or_dare(players):
+def ask_truth_question(player):
+    question = random.choice(questions)
+
+    print(f"{player}, ваше запитання:")
+    print(question)
+
+    answer = input("Ваша відповідь: ")
+
+    return f"{player} відповів: {answer}"
+
+
+def perform_dare(player):
+    dare = random.choice(dares)
+
+    print(f"{player}, ваше завдання:")
+    print(dare)
+
+    return f"{player} виконав завдання: {dare}"
+
+
+def play_game(players):
     results = []
 
     for player in players:
-        while True:
-            choice = input(f"{player}, обери Правда або Дія: ").strip()
+        choice = ask_truth_or_dare(player)
 
-            if choice == "правда":
-                results.append("Правда")
-                break
-            elif choice == "дія":
-                results.append("Дія")
-                break
-            else:
-                print("Будь ласка, введіть 'Правда' або 'Дія'")
+        if choice == "правда":
+            result = ask_truth_question(player)
 
-    return results
+        elif choice == "дія":
+            result = perform_dare(player)
+
+        else:
+            print("Неправильний вибір! Пропуск ходу.")
+            result = f"{player} пропустив(ла) хід."
+
+        results.append(result)
 
 
-result = ask_truth_or_dare()
-print(result)
+    print("Результати раунду:")
+    for r in results:
+        print(r)
 
-# Функція, яка приймає ім'я гравця
-# # та вибирає одне завдання випадковим чином та
-# # просить гравця виконаи його.
+
+players = get_player_names()
+play_game(players)
