@@ -107,6 +107,7 @@ def play_game(players):
 
     print("Результати раунду:")
     for r in results:
+        print()
         print(r)
 
 
