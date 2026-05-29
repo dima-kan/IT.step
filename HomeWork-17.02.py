@@ -100,7 +100,7 @@ def play_game(players):
 
         else:
             print("Неправильний вибір! Пропуск ходу.")
-            result = f"{player} пропустив(ла) хід."
+            result = f"{player} пропустив хід."
 
         results.append(result)
 
