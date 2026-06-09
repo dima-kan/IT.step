@@ -1,0 +1,81 @@
+kanda@DESKTOP-99KOOTJ:~$ resis-cli
+Command 'resis-cli' not found, did you mean:
+  command 'redis-cli' from deb redis-tools (5:8.0.5-1)
+Try: sudo apt install <deb name>
+kanda@DESKTOP-99KOOTJ:~$ redis-cli
+127.0.0.1:6379>
+127.0.0.1:6379> SET NAME JOHN DOE
+(error) ERR syntax error
+127.0.0.1:6379> SET NAME JOHN_DOE
+OK
+127.0.0.1:6379> GET NAME
+"JOHN_DOE"
+127.0.0.1:6379> RPUSH FRUITS APPLE BANANA ORANGE
+(integer) 3
+127.0.0.1:6379> LRANGE FRUITS 0 -1
+1) "APPLE"
+2) "BANANA"
+3) "ORANGE"
+127.0.0.1:6379> # FWF
+(error) ERR unknown command '#', with args beginning with: 'FWF'
+127.0.0.1:6379> // WGW
+(error) ERR unknown command '//', with args beginning with: 'WGW'
+127.0.0.1:6379> HMSET USER:1 NAME ALICE
+OK
+127.0.0.1:6379> HMSET USER:1 AGE 25
+OK
+127.0.0.1:6379> HGETALL USER:1
+1) "NAME"
+2) "ALICE"
+3) "AGE"
+4) "25"
+127.0.0.1:6379> SADD TAGS RED GREEN BLUE
+(integer) 3
+127.0.0.1:6379> SMEMBERS TAGS
+1) "RED"
+2) "GREEN"
+3) "BLUE"
+127.0.0.1:6379> INCR COUNTER
+(integer) 1
+127.0.0.1:6379> GET COUNTER
+"1"
+127.0.0.1:6379> DEL NAME
+(integer) 1
+127.0.0.1:6379> EXISTS NAME
+(integer) 0
+127.0.0.1:6379> SETEX MASSAGE 60 HELLO,RESIS!
+OK
+127.0.0.1:6379> FLUSHALL
+OK
+127.0.0.1:6379> GEOADD GEO_LOCATIONS 30.5234 50.4501
+(error) ERR wrong number of arguments for 'geoadd' command
+127.0.0.1:6379> GEOADD GEO_LOCATIONS 30.5234 50.4501 "Майдан Незалежності"
+(integer) 1
+127.0.0.1:6379> DEL STUDENTS
+(integer) 0
+127.0.0.1:6379> DEL students
+(integer) 1
+127.0.0.1:6379> HGETALL students
+(empty array)
+127.0.0.1:6379> HSET STUDENTS ANNA_KOVALENKO 86
+(integer) 1
+127.0.0.1:6379> HSET STUDENTS MAX_BONDARENKO 53
+(integer) 1
+127.0.0.1:6379> HGETALL STUDENTS
+1) "ANNA_KOVALENKO"
+2) "86"
+3) "MAX_BONDARENKO"
+4) "53"
+127.0.0.1:6379> HSET STUDENTS ANNA_KOVALENKO 54
+(integer) 0
+127.0.0.1:6379> HGETALL STUDENTS
+1) "ANNA_KOVALENKO"
+2) "54"
+3) "MAX_BONDARENKO"
+4) "53"
+127.0.0.1:6379> PFADD UNIQUE_USERS USER_01 USER_02 USER_03
+(integer) 1
+127.0.0.1:6379> PFCOUNT UNIQUE_USERS
+(integer) 3
+127.0.0.1:6379> MULTI
+OK
