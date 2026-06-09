@@ -51,10 +51,6 @@ OK
 (error) ERR wrong number of arguments for 'geoadd' command
 127.0.0.1:6379> GEOADD GEO_LOCATIONS 30.5234 50.4501 "Майдан Незалежності"
 (integer) 1
-127.0.0.1:6379> DEL STUDENTS
-(integer) 0
-127.0.0.1:6379> DEL students
-(integer) 1
 127.0.0.1:6379> HGETALL students
 (empty array)
 127.0.0.1:6379> HSET STUDENTS ANNA_KOVALENKO 86
