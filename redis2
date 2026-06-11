@@ -1,0 +1,88 @@
+kanda@DESKTOP-99KOOTJ:~$ redis-cli
+127.0.0.1:6379> set username Dmytro
+OK
+127.0.0.1:6379> get username
+"Dmytro"
+127.0.0.1:6379> RPUSH todo_list "Поготувати обід"
+(integer) 1
+127.0.0.1:6379> RPUSH todo_list "Вивчити Redis"
+(integer) 2
+127.0.0.1:6379> lrange todo_list
+(error) ERR wrong number of arguments for 'lrange' command
+127.0.0.1:6379> lrange todo_list 0 -1
+1) "\xd0\x9f\xd0\xbe\xd0\xb3\xd0\xbe\xd1\x82\xd1\x83\xd0\xb2\xd0\xb0\xd1\x82\xd0\xb8 \xd0\xbe\xd0\xb1\xd1\x96\xd0\xb4"
+2) "\xd0\x92\xd0\xb8\xd0\xb2\xd1\x87\xd0\xb8\xd1\x82\xd0\xb8 Redis"
+127.0.0.1:6379> del todo list
+(integer) 0
+127.0.0.1:6379> del todo_list
+(integer) 1
+127.0.0.1:6379> RPUSH todo_list "Learn Redis"
+(integer) 1
+127.0.0.1:6379> RPUSH todo_list "Cook lunch"
+(integer) 2
+127.0.0.1:6379> lrange todo_list 0 -1
+1) "Learn Redis"
+2) "Cook lunch"
+127.0.0.1:6379> HSET user_data age 25
+(integer) 1
+127.0.0.1:6379> HSET user_data country "Ukraine"
+(integer) 1
+127.0.0.1:6379> SADD tags "programming"
+(integer) 1
+127.0.0.1:6379> SADD tags "redis"
+(integer) 1
+127.0.0.1:6379> SADD tags "tutorial"
+(integer) 1
+127.0.0.1:6379> SMEMBERS tags
+1) "programming"
+2) "redis"
+3) "tutorial"
+127.0.0.1:6379> incr page_views 5
+(error) ERR wrong number of arguments for 'incr' command
+127.0.0.1:6379> INCRBY page_views 5
+(integer) 5
+127.0.0.1:6379> GET page_views
+"5"
+127.0.0.1:6379> SET session_token "abc123"
+OK
+127.0.0.1:6379> SETEX session_token 120 "abc123"
+OK
+127.0.0.1:6379> TTL session_token
+(integer) 110
+127.0.0.1:6379>  GET session_token
+"abc123"
+127.0.0.1:6379> DEL username
+(integer) 1
+127.0.0.1:6379> GET username
+(nil)
+127.0.0.1:6379> SET user:1:name Dmytro
+OK
+127.0.0.1:6379> KEYS user:*
+1) "user:1:name"
+127.0.0.1:6379> SETBIT online_status 0 1
+(integer) 0
+127.0.0.1:6379> GETBIT online_status 0
+(integer) 1
+127.0.0.1:6379> RPUSH cache:popular_articles 101 102 103 104 105
+(integer) 5
+127.0.0.1:6379> LRANGE cache:popular_articles 0 -1
+1) "101"
+2) "102"
+3) "103"
+4) "104"
+5) "105"
+127.0.0.1:6379> SADD set1 "apple" "banana" "cherry" "date" "elderberry"
+(integer) 5
+127.0.0.1:6379> SADD set2 "cherry" "date" "fig" "grape" "apple"
+(integer) 5
+127.0.0.1:6379> SUNIONSTORE union_set set1 set2
+(integer) 7
+127.0.0.1:6379> SMEMBERS union_set
+1) "apple"
+2) "banana"
+3) "cherry"
+4) "date"
+5) "elderberry"
+6) "fig"
+7) "grape"
+127.0.0.1:6379>
