@@ -2,7 +2,6 @@
 # 1. Добуток двох чисел
 # Введіть два числа з клавіатури та виведіть результат їхнього множення.
 # Підказка: Використайте input() та перетворення на int або float.
-from sqlalchemy.sql.functions import percentile_cont
 
 # num1 = int(input("Enter first number: "))
 # num2 = int(input("Enter second number: "))
@@ -122,6 +121,168 @@ from sqlalchemy.sql.functions import percentile_cont
 # вартість.
 # Підказка: Кінцева ціна = ціна * (1 - знижка / 100).
 
-price_item = int(input("enter price"))
-percent = int(input("enter percent"))
-total = price_item * (1 -percent / 100)
+# price_item = int(input("enter price"))
+# percent = int(input("enter percent"))
+# total = price_item * (1 -percent / 100)
+
+
+# Умовні оператори
+# 11. Більше з двох чисел
+# Введіть два числа. Визначте і виведіть, яке з них більше, або повідомте, що вони рівні.
+# Підказка: Використайте if / elif / else.
+
+
+# num1 = int(input("Enter first number: "))
+# num2 = int(input("Enter second number: "))
+#
+# if num1 > num2:
+#     print(num1, "is greater than num2")
+# elif num1 < num2:
+#     print(num2, "is less than num1")
+# else:
+#     print("number 1 equals number 2")
+#
+
+
+# 12. Найбільше з трьох чисел
+# Введіть три числа. Знайдіть і виведіть найбільше з них без використання функції
+# max().
+
+# num1 = int(input("Enter first number: "))
+# num2 = int(input("Enter second number: "))
+# num3 = int(input("Enter third number: "))
+# num_max = max(num1, num2, num3)
+# print(num_max)
+# Підказка: Порівнюйте попарно: якщо a > b і a > c, то a — найбільше.
+
+# 13. Знак числа
+# Введіть число. Визначте та виведіть: додатне воно, від'ємне, чи нуль.
+# Підказка: Три гілки: n > 0, n < 0, n == 0.
+
+
+# num1 = int(input("Enter first number: "))
+# if num1 >0:
+#     print("num1 is greater than 0")
+# elif num1 < 0:
+#     print("num1 is less than 0")
+# else:
+#     print("num1 is equal to 0")
+
+
+
+# 14. Оцінка за балом
+# Введіть бал від 0 до 100. Виведіть оцінку: 90–100 → 12 балів, 75–89 → 9–11, 60–74 →
+# 6–8, нижче 60 → незадовільно.
+# Підказка: Використайте elif для кожного діапазону.
+
+# # Введення балу
+# ball = int(input("Введіть бал від 0 до 100: "))
+#
+# # # Перевірка та виведення оцінки
+# # if 90 <= ball <= 100:
+# #     print("12 балів")
+# # elif 75 <= ball <= 89:
+# #     print("9-11 балів")
+# # elif 60 <= ball <= 74:
+# #     print("6-8 балів")
+# # elif 0 <= ball < 60:
+# #     print("незадовільно")
+# # else:
+# #     print("Помилка: бал має бути від 0 до 100")
+#
+
+
+# 15. Високосний рік
+# Введіть рік. Визначте, чи є він високосним, і виведіть відповідь.
+# Підказка: Рік високосний, якщо ділиться на 4, але не на 100, або ділиться на 400.
+
+# year = int(input("enter year"))
+# if year % 4 == 0 and year % 100 != 0:
+#     print("leap year")
+# else:
+#     print("not leap year")
+
+
+
+
+
+# 16. Існування трикутника
+# Введіть три сторони. Перевірте, чи може існувати трикутник з такими сторонами.
+# Підказка: Трикутник існує, якщо сума будь-яких двох сторін більша за третю.
+
+# a = float(input("Введіть сторону a: "))
+# b = float(input("Введіть сторону b: "))
+# c = float(input("Введіть сторону c: "))
+#
+# if a + b > c and a + c > b and b + c > a:
+#     print("Трикутник з такими сторонами існує")
+# else:
+#     print("Трикутник з такими сторонами не існує")
+
+
+
+# 17. Тип трикутника
+# Введіть три сторони. Визначте тип трикутника: рівносторонній, рівнобедрений або
+# різносторонній.
+# Підказка: Рівносторонній: a==b==c; рівнобедрений: дві сторони рівні; решта —
+# різносторонній.
+
+
+# a = float(input("Введіть сторону a: "))
+# b = float(input("Введіть сторону b: "))
+# c = float(input("Введіть сторону c: "))
+# if a == b == c:
+#     print("рівносторонній")
+# elif a == b or b == c or c == a:
+#     print("рівнобедрений")
+# else:
+#     print("різносторонній")
+
+
+
+# 18. Перевірка пароля
+# Задайте правильний пароль у коді. Введіть пароль з клавіатури та виведіть, чи він
+# правильний.
+# Підказка: Порівняйте введений рядок з еталонним через ==.
+
+
+# PASSWORD = "password"
+# password = input("Enter your password: ")
+# if password == PASSWORD:
+#     print("Password is correct")
+
+# 19. Система входу
+# Задайте логін і пароль у коді. Введіть їх з клавіатури. Виведіть "Вхід успішний" або
+# "Помилка".
+# Підказка: Перевіряйте обидві умови одночасно через and.
+
+# LOGIN = "8442"
+# PASSWORD = "password"
+# password = input("Enter your password: ")
+# login = input("Enter your login: ")
+#
+# if password == PASSWORD and login == LOGIN:
+#     print("Password and login correct")
+# else:
+#     print("Wrong password or login ")
+
+
+
+# 20. Пора року
+# Введіть номер місяця (1–12). Виведіть відповідну пору року.
+
+
+# Введення номера місяця
+month = int(input("Введіть номер місяця (1–12): "))
+
+if month == 12 or month == 1 or month == 2:
+    print("winter")
+elif 3 <= month <= 5:
+    print("spring")
+elif 6 <= month <= 8:
+    print("summer")
+elif 9 <= month <= 11:
+    print("autumn")
+else:
+    print("номер місяця має бути від 1 до 12")
+
