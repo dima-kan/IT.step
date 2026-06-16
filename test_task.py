@@ -427,14 +427,14 @@ import random
 # Введіть число N. За допомогою while виведіть таблицю множення для цього числа від
 # 1 до 10.
 # Підказка: Виводьте рядки виду: "N * i = результат
-i = 0
-n= int(input("enter a number"))
-while True:
-    i += 1
-    total = i*n
-    print(total)
-
-    if i == 10:
-        break
+# i = 0
+# n= int(input("enter a number"))
+# while True:
+#     i += 1
+#     total = i*n
+#     print(total)
+#
+#     if i == 10:
+#         break
 
 
